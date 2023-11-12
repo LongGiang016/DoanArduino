@@ -36,6 +36,7 @@ int btn_last_BaoBenh = 0;
 int dem_BB =  0;
 bool DenNhapNhay = false;
 unsigned long t_preh = 0;
+int camBienNhiet = A0;
 
 
 void setup() {
@@ -66,40 +67,62 @@ void setup() {
 
 void loop() {
   //Huy------------------------------------------------------------
-   int btn_stt_BaoBenh = digitalRead(8);
-   if (btn_stt_BaoBenh == HIGH && btn_last_BaoBenh == LOW) {
-      dem_BB++;
-     
-    
-      if (dem_BB == 1) {
-        DenNhapNhay = true;
-       t_preh = millis();
-      }
-      
-      else if (dem_BB == 2) {
-        DenNhapNhay = false;
-        digitalWrite(13, LOW);
-        digitalWrite(11, LOW);
-        digitalWrite(10, LOW);
-        digitalWrite(12, LOW);
-        digitalWrite(9, LOW);
-        dem_BB = 0;  
-      }
-  }
-
-  if (DenNhapNhay) {
+    int reading = analogRead(camBienNhiet);
+  float voltage = reading * 5.0 / 1024.0;
+  float temperature = voltage * 100.0;
+  if (temperature > 80 ) {
     unsigned long t_cur = millis();
-    if (t_cur - t_preh >= 500) {
+    if (t_cur - t_preh >= 300) {
       t_preh = t_cur;
-      
+
       digitalWrite(13, !digitalRead(13));
       digitalWrite(11, !digitalRead(11));
       digitalWrite(10, !digitalRead(10));
       digitalWrite(12, !digitalRead(12));
       digitalWrite(9, !digitalRead(9));
     }
+  } else {
+    digitalWrite(9, LOW);
+    digitalWrite(10, LOW);
+    digitalWrite(11, LOW);
+    digitalWrite(12, LOW);
+    digitalWrite(13, LOW);
   }
-  btn_last_BaoBenh = btn_stt_BaoBenh;
+  //  int btn_stt_BaoBenh = digitalRead(8);
+  //  if (btn_stt_BaoBenh == HIGH && btn_last_BaoBenh == LOW) {
+  //     dem_BB++;
+     
+    
+  //     if (dem_BB == 1) {
+  //       DenNhapNhay = true;
+  //      t_preh = millis();
+  //     }
+      
+  //     else if (dem_BB == 2) {
+  //       DenNhapNhay = false;
+  //       digitalWrite(13, LOW);
+  //       digitalWrite(11, LOW);
+  //       digitalWrite(10, LOW);
+  //       digitalWrite(12, LOW);
+  //       digitalWrite(9, LOW);
+  //       dem_BB = 0;  
+  //     }
+  // }
+
+  // if (DenNhapNhay) {
+  //   unsigned long t_cur = millis();
+  //   if (t_cur - t_preh >= 500) {
+  //     t_preh = t_cur;
+      
+  //     digitalWrite(13, !digitalRead(13));
+  //     digitalWrite(11, !digitalRead(11));
+  //     digitalWrite(10, !digitalRead(10));
+  //     digitalWrite(12, !digitalRead(12));
+  //     digitalWrite(9, !digitalRead(9));
+  //   }
+  // }
+  // btn_last_BaoBenh = btn_stt_BaoBenh;
+
 
   //Giang
   int stt_pass0 = digitalRead(btn_pass0);
