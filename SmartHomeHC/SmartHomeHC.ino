@@ -67,7 +67,8 @@ void setup() {
 
 void loop() {
   //Huy------------------------------------------------------------
-    int reading = analogRead(camBienNhiet);
+  
+  int reading = analogRead(camBienNhiet);
   float voltage = reading * 5.0 / 1024.0;
   float temperature = voltage * 100.0;
   if (temperature > 80 ) {
@@ -88,6 +89,7 @@ void loop() {
     digitalWrite(12, LOW);
     digitalWrite(13, LOW);
   }
+
   //  int btn_stt_BaoBenh = digitalRead(8);
   //  if (btn_stt_BaoBenh == HIGH && btn_last_BaoBenh == LOW) {
   //     dem_BB++;
@@ -222,6 +224,10 @@ void loop() {
     dem_P2=0;
   }
   last_btn_stt_P2 = btn_stt_P2;
+
+  int value = analogRead(A2);
+  int voltage = map(value, 0, 1023, 0, 255);
+  analogWrite(9, voltage);
   
   //Kha------------------------------------------------------------
   if(digitalRead(2)==HIGH)
