@@ -1,5 +1,6 @@
 //Giang
 #include <LiquidCrystal_I2C.h>
+#include<Servo.h>
 #include<Wire.h>
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 int btn_pass0 = 7;
@@ -31,6 +32,9 @@ byte dem_TH = 0;
 byte stt_WC = 0;
 byte stt_Khach = 0;
 byte stt_TH = 0;
+Servo myservo;
+int mocua = 0;
+
 //Huy
 int btn_last_BaoBenh = 0;
 int dem_BB =  0;
@@ -52,6 +56,7 @@ void setup() {
   pinMode(9,OUTPUT);
   pinMode(12,OUTPUT);
   pinMode(13,OUTPUT);
+  myservo.attach(A3);
   //Huy
   pinMode(7,INPUT);
   pinMode(8,INPUT);
@@ -232,7 +237,7 @@ void loop() {
   //Kha------------------------------------------------------------
   if(digitalRead(2)==HIGH)
   {
-    dem_TH = 1;
+    dem_WC = 1;
   }
   if(digitalRead(3)==HIGH)
   {
@@ -240,13 +245,13 @@ void loop() {
   }
   if(digitalRead(4)==HIGH)
   {
-    dem_WC = 1;
+    mocua = (mocua==1? 0: 1);
   }
-  if(digitalRead(2)==LOW && dem_TH != 0)
+  if(digitalRead(2)==LOW && dem_WC != 0)
   {
-    stt_TH = !stt_TH;
-    digitalWrite(12,stt_TH);
-    dem_TH = 0;
+    stt_WC = !stt_WC;
+    digitalWrite(12,stt_WC);
+    dem_WC = 0;
   }
   if(digitalRead(3)==LOW && dem_Khach!=0)
   {
@@ -254,11 +259,16 @@ void loop() {
     digitalWrite(13,stt_Khach);
     dem_Khach = 0;
   }
-  if(digitalRead(4)==LOW && dem_WC!=0)
-  {
-    stt_WC = !stt_WC;
-    digitalWrite(9,stt_WC);
-    dem_WC = 0;
-  }
+  if(digitalRead(4) == LOW)
+      {
+        if(mocua == 1)
+        {
+          myservo.write(90);
+        }
+        if(mocua == 0)
+        {
+          myservo.write(0);
+        }
+      }
   }
 }
