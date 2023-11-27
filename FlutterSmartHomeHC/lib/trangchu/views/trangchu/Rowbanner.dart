@@ -57,119 +57,190 @@ void showBottomSheet(BuildContext context) {
   showModalBottomSheet(
     context: context,
     builder: (BuildContext context) {
-      return SingleChildScrollView(
-        child: Container(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [Text("Chọn thiết bị",style: TextStyle(fontSize: 25),)],
-              ),
-              Column(
-                children: [
-        
-                  SizedBox(child: 
-                    GridView.count(
-                      primary: false,
-                      padding: const EdgeInsets.all(10),
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      shrinkWrap: true,
-                      crossAxisCount: 2,
-                      children: <Widget>[
-                        Container(
-                          color: Colors.teal[100],
+      return Container(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [Text("Chọn thiết bị",style: TextStyle(fontSize: 25),)],
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: (MediaQuery.of(context).size.height)/2.2,
+                  child:GridView.count(
+                    primary: false,
+                    padding: const EdgeInsets.all(10),
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    shrinkWrap: true,
+                    crossAxisCount: 2,
+                    children: <Widget>[
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          final snackBar = SnackBar(
+                            content: Text('Đang phát triển'),
+                            action: SnackBarAction(
+                              label: 'Đóng',
+                              onPressed: () {
+                                // Code xử lý khi nhấn vào nút đóng
+                              },
+                            ),
+                          );
+
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Row(
-                                children: [
-                                  Padding(padding: EdgeInsets.all(8)),
-                                  Text('Đèn',style: TextStyle(fontSize: 35),),
-                                ],
+                              Icon(
+                                Icons.light,
+                                size: 40,
                               ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.light,size: 75,)
-                                ],
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "Đèn",
+                                style: TextStyle(fontSize: 25),
                               ),
                             ],
                           ),
                         ),
-        
-                        Container(
-                          color: Colors.teal[100],
-                          child: Column(
+                      ),
+
+                      Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Row(
-                                children: [
-                                  Padding(padding: EdgeInsets.all(8)),
-                                  Text('TV',style: TextStyle(fontSize: 35),),
-                                ],
+                              Icon(
+                                Icons.tv,
+                                size: 40,
                               ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.tv,size: 75,)
-                                ],
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "TV",
+                                style: TextStyle(fontSize: 25),
+                              ),
+                            ],
+                          ),
+                      ),
+
+                      Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.speaker,
+                                size: 40,
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "Loa",
+                                style: TextStyle(fontSize: 25),
+                              ),
+                            ],
+                          ),
+                      ),
+
+                      Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.wind_power,
+                                size: 40,
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "Quạt",
+                                style: TextStyle(fontSize: 25),
+                              ),
+                            ],
+                          ),
+                      ),
+
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          final snackBar = SnackBar(
+                            content: Text('Đang phát triển'),
+                            action: SnackBarAction(
+                              label: 'Đóng',
+                              onPressed: () {
+                                // Code xử lý khi nhấn vào nút đóng
+                              },
+                            ),
+                          );
+
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.add,
+                                size: 40,
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "Thêm Thiết Bị",
+                                style: TextStyle(fontSize: 25),
                               ),
                             ],
                           ),
                         ),
-        
-                        Container(
-                          color: Colors.teal[100],
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Padding(padding: EdgeInsets.all(8)),
-                                  Text('Loa',style: TextStyle(fontSize: 35),),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Icon(Icons.speaker,size: 75,)
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-        
-                        Container(
-                          color: Colors.teal[100],
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Padding(padding: EdgeInsets.all(8)),
-                                  Text('Máy Lạnh',style: TextStyle(fontSize: 35),),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.ac_unit,size: 75,)
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    )
+                      ),
+                    ],
                   )
-                ], 
-              ),
-              Row(
-                children: [
-                  Padding(padding: EdgeInsets.fromLTRB(70, 0, 70, 0)),
-                  ElevatedButton(onPressed: () {}, child: Text("Thêm thiệt bị"))
-                ],
-              )
-            ],
-          ),
+                )
+              ], 
+            ),
+          ]
         ),
       );
     },
