@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/trangchu/Load_trang_chinh.dart';
 import 'package:flutter_application_1/trangchu/views/trangchu/bottomNav.dart';
 
 // ignore: must_be_immutable
