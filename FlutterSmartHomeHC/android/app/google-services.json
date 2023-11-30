@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "421007294815",
+    "firebase_url": "https://botapplication-bea94-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "botapplication-bea94",
+    "storage_bucket": "botapplication-bea94.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421007294815:android:dfc91fc1086f3ac468f6ea",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA91RN6s7BECUiBexMEXeBvkjMML2Zz3TU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
