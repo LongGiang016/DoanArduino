@@ -1,9 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_application_1/trangchu/model/dataListView.dart';
 import 'package:flutter_application_1/trangchu/model/loadtrang.dart';
 
 class MyListView extends StatefulWidget {
@@ -32,7 +29,6 @@ class _MyListViewState extends State<MyListView> {
 
   @override
   Widget build(BuildContext context) {
-    bool SwPhongkhach = false;
     return ListView.builder(
       itemCount: _item.length,
       itemBuilder: (context, index) {
