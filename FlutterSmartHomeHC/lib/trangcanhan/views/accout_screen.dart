@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -36,7 +38,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
   _setupUser() async {
     List<TaiKhoan> taikhoan = await databaseSmartHome.GetTaiKhoan();
-    
+
     setState(() {
       lst_user = taikhoan;
       for (var us in lst_user) {
@@ -47,12 +49,23 @@ class _AccountScreenState extends State<AccountScreen> {
     });
   }
 
+  void logout() {
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     String gioiTinh = NamKhoa.getGioiTinh();
     String LoaiThanhVien = NamKhoa.GetLoaiThanhVien();
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                logout();
+              },
+              icon: const Icon(Icons.logout))
+        ],
         automaticallyImplyLeading: false,
         title: const Text(
           'Tài khoản',

@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class Rowbanner extends StatelessWidget {
-  const Rowbanner({super.key});
+  Rowbanner({super.key});
+  final user = FirebaseAuth.instance.currentUser!;
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +13,8 @@ class Rowbanner extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            const Text(
-              "WelCome to 5BOT SmartHome",
+            Text(
+              "Welcome " + user.email!,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,

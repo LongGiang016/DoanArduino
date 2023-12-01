@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Khac/listViewItems.dart';
 import 'package:flutter_application_1/trangchu/views/trangchu/ChucNangChinh_screen.dart';
@@ -17,40 +18,40 @@ class _trangchitietState extends State<trangchitiet> {
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.only(top: 30),
-        child: const Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Rowbanner(),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               "Danh sách phòng",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Expanded(child: MyListView()),
-            SizedBox(
+            const Expanded(child: MyListView()),
+            const SizedBox(
               height: 5,
             ),
-            Text(
+            const Text(
               "Chức năng chính",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             // Expanded(child: myGirdView()),
-            ChucNangChinh(),
+            const ChucNangChinh(),
             //bottomNav()
           ],
         ),

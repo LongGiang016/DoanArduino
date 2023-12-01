@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/trangchu/views/trangchu/bottomNav.dart';
+import 'package:flutter_application_1/login/views/change_pass_screen.dart';
+import 'package:flutter_application_1/login/views/signup_screen.dart';
 
 // ignore: must_be_immutable
 class LoginScreen extends StatefulWidget {
@@ -13,26 +16,67 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+  void login() async {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        });
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email.text, password: password.text);
+      Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      Navigator.pop(context);
+      wrongLogin(e.code);
+    }
+  }
+
+  void wrongLogin(String message) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Center(
+              child: Text(message),
+            ),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(title: const Text("5BOT SmartHome")),
       body: Container(
-        padding: const EdgeInsets.fromLTRB(50, 150, 50, 0),
+        padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
         child: Column(
           children: [
-            const Text(
-              "Đăng nhập",
-              style: TextStyle(color: Colors.blue, fontSize: 30),
+            const Image(image: AssetImage('assets/img/5BOT-logos.png')),
+            TextFormField(
+              controller: email,
+              decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.person_outline_outlined),
+                  label: Text("Email"),
+                  hintText: 'Email',
+                  border: OutlineInputBorder()),
             ),
-            const TextField(
-              decoration: InputDecoration(hintText: 'Username'),
+            const SizedBox(
+              height: 10,
             ),
-            TextField(
+            TextFormField(
+              controller: password,
               obscureText: widget.hint_pass,
               decoration: InputDecoration(
-                  hintText: 'Password',
+                  prefixIcon: const Icon(Icons.fingerprint),
+                  label: const Text("Mật khẩu"),
+                  hintText: 'Mật khẩu',
+                  border: OutlineInputBorder(),
                   suffixIcon: IconButton(
                       onPressed: () {
                         if (widget.hint_pass == true) {
@@ -53,24 +97,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       ))),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
                     onPressed: () {
-                      Navigator.popUntil(context, (route) => route.isFirst);
-                      Navigator.pushNamed(context, '/changepass');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) => ChangePass()));
                     },
                     child: const Text(
-                      "Quên mật khẩu",
-                      style: TextStyle(color: Colors.blue),
-                    )),
-                TextButton(
-                    onPressed: () {
-                      Navigator.popUntil(context, (route) => route.isFirst);
-                      Navigator.pushNamed(context, '/signup');
-                    },
-                    child: const Text(
-                      "Đăng ký",
+                      "Quên mật khẩu?",
                       style: TextStyle(color: Colors.blue),
                     )),
               ],
@@ -78,61 +115,55 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () {
-                      print("Click vào trang chủ");
-                      setState(() {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  const bottomNav(),
-                            ));
-                      });
-                    },
-                    child: const Text("Đăng nhập"))),
-            const Expanded(
-              child: SizedBox(
-                height: 300,
-              ),
+                  onPressed: () {
+                    login();
+                  },
+                  child: Text(
+                    "Đăng nhập",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  style: ElevatedButton.styleFrom(primary: Colors.blue),
+                )),
+            const SizedBox(
+              height: 30,
             ),
             const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
-                    child: Divider(
-                  thickness: 1,
-                  color: Colors.black,
-                )),
-                Text("Các phương thức đăng nhập khác"),
-                Expanded(
-                    child: Divider(
-                  thickness: 1,
-                  color: Colors.black,
-                )),
+                Text("Hoặc"),
               ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            SizedBox(
+                width: double.infinity,
+                child: OutlinedButton.icon(
+                  onPressed: () {},
+                  icon: const Icon(Icons.email_outlined),
+                  label: const Text("Đăng nhập bằng tài khoản Google"),
+                )),
+            const SizedBox(
+              height: 30,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.facebook,
-                      color: Colors.blue,
-                    )),
-                IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.mail,
-                      color: Colors.red[300],
+                const Text("Chưa có tài khoản?"),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => SignUpScreen(),
+                          ));
+                    },
+                    child: const Text(
+                      "Đăng ký",
+                      style: TextStyle(color: Colors.blue),
                     )),
               ],
-            ),
-            TextButton(
-                onPressed: () {
-                  Navigator.popUntil(context, (route) => route.isFirst);
-                  Navigator.pushNamed(context, '/');
-                },
-                child: const Text("Đăng nhập/ Đăng ký bằng Email")),
+            )
           ],
         ),
       ),
