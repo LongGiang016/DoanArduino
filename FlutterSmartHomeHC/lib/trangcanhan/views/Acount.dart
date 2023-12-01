@@ -11,34 +11,29 @@ class Account {
   String url;
   int type;
   String matkhau;
-  
-  
-  Account(this.name, this.phoneNumber, this.email, this.gender, this.url, this.type, this.matkhau);
-  
-  String getGioiTinh(){
-    if(gender == 1){
+
+  Account(this.name, this.phoneNumber, this.email, this.gender, this.url,
+      this.type, this.matkhau);
+
+  String getGioiTinh() {
+    if (gender == 1) {
       return "Nam";
-    }
-    else if(gender == 0){
+    } else if (gender == 0) {
       return "Nữ";
-    }else{
+    } else {
       return "Khác";
     }
   }
-  
-  String GetLoaiThanhVien(){
-    if(type == 1){
+
+  String GetLoaiThanhVien() {
+    if (type == 1) {
       return "Chủ hộ";
-    }
-    else if(type == 0){
+    } else if (type == 0) {
       return "Thành viên";
-    }
-    else{
+    } else {
       return "Khách";
     }
   }
-  
-  
 }
 
 class TheAccount extends StatefulWidget {
@@ -53,21 +48,19 @@ class _TheAccountState extends State<TheAccount> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 3, right: 3),
-        height: 10,
-        decoration: BoxDecoration(
+      padding: const EdgeInsets.only(left: 3, right: 3),
+      height: 10,
+      decoration: const BoxDecoration(
           //border: Border.all(width: 0.5, color: Colors.grey)
-                           
-        ),
-        child: Row(
-           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-           children: [
-            Text(widget.Ten),
-             Icon(Icons.person, color : Color(0xFF31966B),size: 20),
-            ],
-          ),     
 
+          ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(widget.Ten),
+          const Icon(Icons.person, color: Color(0xFF31966B), size: 20),
+        ],
+      ),
     );
-    
   }
 }

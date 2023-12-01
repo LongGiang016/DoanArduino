@@ -13,16 +13,15 @@ class _Entertaiment_ScreenState extends State<Entertaiment_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Giải Trí"),
+        title: const Text("Giải Trí"),
       ),
       body: Column(
         children: [
-          Padding(padding: EdgeInsets.all(16.0)),
+          const Padding(padding: EdgeInsets.all(16.0)),
           Card_GT(id: 1),
           Card_GT(id: 2)
         ],
       ),
-      
     );
   }
 }

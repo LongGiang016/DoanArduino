@@ -53,25 +53,29 @@ class Rowbanner extends StatelessWidget {
     );
   }
 }
+
 void showBottomSheet(BuildContext context) {
   showModalBottomSheet(
     context: context,
     builder: (BuildContext context) {
       return Container(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Text("Chọn thiết bị",style: TextStyle(fontSize: 25),)],
-            ),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(
+        child: Column(mainAxisSize: MainAxisSize.max, children: [
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Chọn thiết bị",
+                style: TextStyle(fontSize: 25),
+              )
+            ],
+          ),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  height: (MediaQuery.of(context).size.height)/2.2,
-                  child:GridView.count(
+                  height: (MediaQuery.of(context).size.height) / 2.2,
+                  child: GridView.count(
                     primary: false,
                     padding: const EdgeInsets.all(10),
                     crossAxisSpacing: 10,
@@ -83,7 +87,7 @@ void showBottomSheet(BuildContext context) {
                         onTap: () {
                           Navigator.of(context).pop();
                           final snackBar = SnackBar(
-                            content: Text('Đang phát triển'),
+                            content: const Text('Đang phát triển'),
                             action: SnackBarAction(
                               label: 'Đóng',
                               onPressed: () {
@@ -101,7 +105,7 @@ void showBottomSheet(BuildContext context) {
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: Column(
+                          child: const Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
@@ -119,87 +123,83 @@ void showBottomSheet(BuildContext context) {
                           ),
                         ),
                       ),
-
                       Container(
                         decoration: BoxDecoration(
-                            border: Border.all(
-                              width: 2,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.tv,
-                                size: 40,
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                "TV",
-                                style: TextStyle(fontSize: 25),
-                              ),
-                            ],
+                          border: Border.all(
+                            width: 2,
                           ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.tv,
+                              size: 40,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "TV",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                          ],
+                        ),
                       ),
-
                       Container(
                         decoration: BoxDecoration(
-                            border: Border.all(
-                              width: 2,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.speaker,
-                                size: 40,
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                "Loa",
-                                style: TextStyle(fontSize: 25),
-                              ),
-                            ],
+                          border: Border.all(
+                            width: 2,
                           ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.speaker,
+                              size: 40,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "Loa",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                          ],
+                        ),
                       ),
-
                       Container(
                         decoration: BoxDecoration(
-                            border: Border.all(
-                              width: 2,
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.wind_power,
-                                size: 40,
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                "Quạt",
-                                style: TextStyle(fontSize: 25),
-                              ),
-                            ],
+                          border: Border.all(
+                            width: 2,
                           ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.wind_power,
+                              size: 40,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "Quạt",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                          ],
+                        ),
                       ),
-
                       GestureDetector(
                         onTap: () {
                           Navigator.of(context).pop();
                           final snackBar = SnackBar(
-                            content: Text('Đang phát triển'),
+                            content: const Text('Đang phát triển'),
                             action: SnackBarAction(
                               label: 'Đóng',
                               onPressed: () {
@@ -217,7 +217,7 @@ void showBottomSheet(BuildContext context) {
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          child: Column(
+                          child: const Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
@@ -236,12 +236,10 @@ void showBottomSheet(BuildContext context) {
                         ),
                       ),
                     ],
-                  )
-                )
-              ], 
-            ),
-          ]
-        ),
+                  ))
+            ],
+          ),
+        ]),
       );
     },
   );

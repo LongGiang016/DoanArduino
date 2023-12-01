@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ThietBi/detail.dart';
 import 'package:flutter_application_1/tranggiaitri/entertaiment_screen.dart';
+import 'package:get/get.dart';
 
 class ChucNangChinh extends StatefulWidget {
   const ChucNangChinh({super.key});
@@ -104,7 +106,11 @@ class _ChucNangChinhState extends State<ChucNangChinh> {
                 onTap: () {
                   setState(() {
                     print("đã nhấn vào thiết bị");
-                    
+                Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ScreenLight()),
+                    );
                   });
                 },
                 child: Container(
@@ -145,9 +151,10 @@ class _ChucNangChinhState extends State<ChucNangChinh> {
                   setState(() {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Entertaiment_Screen()),
+                      MaterialPageRoute(
+                          builder: (context) => Entertaiment_Screen()),
                     );
-                    
+
                     print("đã nhấn vào giải trí");
                   });
                 },
