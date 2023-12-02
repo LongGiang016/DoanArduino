@@ -4,9 +4,8 @@ import 'package:flutter_application_1/login/views/signup_screen.dart';
 import 'package:flutter_application_1/models/users_model.dart';
 
 class AddInfoScreen extends StatefulWidget {
-  const AddInfoScreen({super.key, required this.email, required this.password});
+  const AddInfoScreen({super.key, required this.email});
   final String email;
-  final String password;
 
   @override
   State<AddInfoScreen> createState() => _AddInfoScreenState();
@@ -103,7 +102,6 @@ class _AddInfoScreenState extends State<AddInfoScreen> {
                   onPressed: () {
                     final user = UserModel(
                         email: widget.email,
-                        password: widget.password,
                         tenTaiKhoan: tenTaiKhoan.text.trim(),
                         maNha: int.parse(maNha.text.trim()),
                         gioiTinh: (GioiTinh.nam == true ? true : false),

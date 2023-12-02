@@ -1,4 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Khac/listViewItems.dart';
 import 'package:flutter_application_1/trangchu/views/trangchu/ChucNangChinh_screen.dart';
@@ -13,6 +15,8 @@ class trangchitiet extends StatefulWidget {
 }
 
 class _trangchitietState extends State<trangchitiet> {
+  final refPhong = FirebaseDatabase.instance.ref("SmartHome/phong");
+  final refThietBi = FirebaseDatabase.instance.ref("SmartHome/ThietBi");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +40,26 @@ class _trangchitietState extends State<trangchitiet> {
             const SizedBox(
               height: 10,
             ),
-            const Expanded(child: MyListView()),
+            Expanded(
+                child: Container(
+              decoration: BoxDecoration(border: Border(bottom: BorderSide())),
+              child: FirebaseAnimatedList(
+                  query: refPhong,
+                  itemBuilder: (context, snapshot, animation, index) {
+                    return ListTile(
+                      title: Text(snapshot.child('Ten').value.toString()),
+                      subtitle: Text(snapshot.child('trangthaiDen').value == 0
+                          ? "Tắt"
+                          : "Mở"),
+                      trailing: Icon(
+                        Icons.light_mode_rounded,
+                        color: snapshot.child('trangthaiDen').value == 0
+                            ? Colors.black
+                            : Colors.greenAccent,
+                      ),
+                    );
+                  }),
+            )),
             const SizedBox(
               height: 5,
             ),

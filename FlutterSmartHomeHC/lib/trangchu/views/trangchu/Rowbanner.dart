@@ -16,7 +16,7 @@ class Rowbanner extends StatelessWidget {
             Text(
               "Welcome " + user.email!,
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),
               softWrap: true,

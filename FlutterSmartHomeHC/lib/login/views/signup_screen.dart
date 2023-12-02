@@ -141,7 +141,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           MaterialPageRoute(
                               builder: (BuildContext context) => AddInfoScreen(
                                     email: email.text,
-                                    password: password.text,
                                   )));
                     }
                   },

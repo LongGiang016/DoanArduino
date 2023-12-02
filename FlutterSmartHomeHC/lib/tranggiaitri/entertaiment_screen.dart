@@ -87,7 +87,7 @@ class _Entertaiment_ScreenState extends State<Entertaiment_Screen>
                                   if (is_checked) {
                                     FirebaseDatabase.instance
                                         .ref()
-                                        .child('/SmartHome/ThietBi/0/trangthai')
+                                        .child('/SmartHome/ThietBi/0')
                                         .update({
                                       'trangthai': 2,
                                     });

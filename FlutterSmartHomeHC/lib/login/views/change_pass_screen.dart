@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ChangePass extends StatefulWidget {
@@ -8,6 +9,36 @@ class ChangePass extends StatefulWidget {
 }
 
 class _ChangePassState extends State<ChangePass> {
+  TextEditingController email = TextEditingController();
+  @override
+  void dispose() {
+    email.dispose();
+    super.dispose();
+  }
+
+  Future resetPassword() async {
+    try {
+      await FirebaseAuth.instance
+          .sendPasswordResetEmail(email: email.text.trim());
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              content: Text(
+                  "Link reset mật khẩu đã được gửi! Vui lòng kiếm tra email"),
+            );
+          });
+    } on FirebaseAuthException catch (e) {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              content: Text(e.message.toString()),
+            );
+          });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,28 +47,24 @@ class _ChangePassState extends State<ChangePass> {
         padding: const EdgeInsets.fromLTRB(50, 150, 50, 50),
         child: Column(
           children: [
-            Stack(
-              alignment: const Alignment(1.0, 0.0), // right & center
-              children: <Widget>[
-                const TextField(
-                  decoration: InputDecoration(hintText: "Mã xác nhận"),
-                ),
-                Positioned(
-                  child: ElevatedButton(
-                    style:
-                        ElevatedButton.styleFrom(shape: const StadiumBorder()),
-                    onPressed: () {},
-                    child: const Text("Gửi mã"),
-                  ),
-                ),
-              ],
+            Text(
+              "Nhập email của bạn để chúng tôi gửi bạn đường dẫn reset mật khẩu",
+              style: TextStyle(fontSize: 20),
+              textAlign: TextAlign.center,
             ),
-            const TextField(
-              decoration: InputDecoration(
-                hintText: 'Nhập mã xác minh được gửi qua SMS',
-              ),
+            TextFormField(
+              controller: email,
+              decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.person_outline_outlined),
+                  label: Text("Email"),
+                  hintText: 'Email',
+                  border: OutlineInputBorder()),
             ),
-            ElevatedButton(onPressed: () {}, child: const Text("Tiếp theo"))
+            ElevatedButton(
+                onPressed: () {
+                  resetPassword();
+                },
+                child: const Text("Xác nhận"))
           ],
         ),
       ),
