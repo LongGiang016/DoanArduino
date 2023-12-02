@@ -124,7 +124,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       },
                       icon: Icon(
                         Icons.remove_red_eye_sharp,
-                        color: color_iconbtn,
+                        color: color_iconbtn2,
                       ))),
             ),
             const SizedBox(
@@ -153,22 +153,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(
               height: 30,
             ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Hoặc"),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            SizedBox(
-                width: double.infinity,
-                child: OutlinedButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.email_outlined),
-                  label: const Text("Đăng nhập bằng tài khoản Google"),
-                )),
             const SizedBox(
               height: 30,
             ),

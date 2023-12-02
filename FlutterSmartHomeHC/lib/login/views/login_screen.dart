@@ -126,22 +126,6 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(
               height: 30,
             ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Hoặc"),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            SizedBox(
-                width: double.infinity,
-                child: OutlinedButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.email_outlined),
-                  label: const Text("Đăng nhập bằng tài khoản Google"),
-                )),
             const SizedBox(
               height: 30,
             ),
