@@ -53,11 +53,11 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBhKDTYcvrDi05upuOyc90x2auPcAie2ro',
-    appId: '1:345621729434:android:eef8e7415574ed67248f23',
-    messagingSenderId: '345621729434',
-    projectId: 'demologin-2be41',
-    databaseURL: 'https://demologin-2be41-default-rtdb.asia-southeast1.firebasedatabase.app',
-    storageBucket: 'demologin-2be41.appspot.com',
+    apiKey: 'AIzaSyA91RN6s7BECUiBexMEXeBvkjMML2Zz3TU',
+    appId: '1:421007294815:android:dfc91fc1086f3ac468f6ea',
+    messagingSenderId: '421007294815',
+    projectId: 'botapplication-bea94',
+    databaseURL: 'https://botapplication-bea94-default-rtdb.asia-southeast1.firebasedatabase.app',
+    storageBucket: 'botapplication-bea94.appspot.com',
   );
 }

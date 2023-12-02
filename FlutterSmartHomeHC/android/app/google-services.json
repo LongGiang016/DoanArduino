@@ -1,101 +1,50 @@
 {
   "project_info": {
-    "project_number": "345621729434",
-    "firebase_url": "https://demologin-2be41-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "demologin-2be41",
-    "storage_bucket": "demologin-2be41.appspot.com"
+    "project_number": "421007294815",
+    "firebase_url": "https://botapplication-bea94-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "botapplication-bea94",
+    "storage_bucket": "botapplication-bea94.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:345621729434:android:fbf2ce4a166ca57b248f23",
-        "android_client_info": {
-          "package_name": "com.example.demo_login"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "345621729434-c7o9hm28meoq0mgr2g5bdm7pkhivk08r.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBhKDTYcvrDi05upuOyc90x2auPcAie2ro"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "345621729434-c7o9hm28meoq0mgr2g5bdm7pkhivk08r.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:345621729434:android:fc814322dabacace248f23",
-        "android_client_info": {
-          "package_name": "com.example.demo_login1"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "345621729434-ges82suqulnh4pf96qbfuo8uv1d54r3r.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.demo_login1",
-            "certificate_hash": "f3881a8b181e14219b6dd7544a01a11abbd63426"
-          }
-        },
-        {
-          "client_id": "345621729434-c7o9hm28meoq0mgr2g5bdm7pkhivk08r.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBhKDTYcvrDi05upuOyc90x2auPcAie2ro"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "345621729434-c7o9hm28meoq0mgr2g5bdm7pkhivk08r.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:345621729434:android:eef8e7415574ed67248f23",
+        "mobilesdk_app_id": "1:421007294815:android:dfc91fc1086f3ac468f6ea",
         "android_client_info": {
           "package_name": "com.example.flutter_application_1"
         }
       },
       "oauth_client": [
         {
-          "client_id": "345621729434-c7o9hm28meoq0mgr2g5bdm7pkhivk08r.apps.googleusercontent.com",
+          "client_id": "421007294815-cj8teen2ji39slu5iuldp6feeff95bfu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_application_1",
+            "certificate_hash": "417bd4d0601de77812454d8facfea810a71a6482"
+          }
+        },
+        {
+          "client_id": "421007294815-h4jqsl3fvbn98bq8gmkh7biueud6341c.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBhKDTYcvrDi05upuOyc90x2auPcAie2ro"
+          "current_key": "AIzaSyA91RN6s7BECUiBexMEXeBvkjMML2Zz3TU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "345621729434-c7o9hm28meoq0mgr2g5bdm7pkhivk08r.apps.googleusercontent.com",
+              "client_id": "421007294815-h4jqsl3fvbn98bq8gmkh7biueud6341c.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "421007294815-dq19r7qv7ssh1f745p4s9jaf1fats6na.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterApplication1"
+              }
             }
           ]
         }
