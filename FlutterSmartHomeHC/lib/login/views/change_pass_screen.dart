@@ -47,7 +47,7 @@ class _ChangePassState extends State<ChangePass> {
         padding: const EdgeInsets.fromLTRB(50, 150, 50, 50),
         child: Column(
           children: [
-            Text(
+            const Text(
               "Nhập email của bạn để chúng tôi gửi bạn đường dẫn reset mật khẩu",
               style: TextStyle(fontSize: 20),
               textAlign: TextAlign.center,

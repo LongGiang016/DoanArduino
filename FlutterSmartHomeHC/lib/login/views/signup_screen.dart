@@ -21,14 +21,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Color color_iconbtn = Colors.black;
   bool hint_pass2 = true;
   Color color_iconbtn2 = Colors.black;
-
+  bool check = true;
   void signUp() async {
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: email.text, password: password.text);
     } on FirebaseAuthException catch (e) {
       wrongSignUp(e.code);
+      check = false;
     }
+  }
+
+  void checkSignup() {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (BuildContext context) => AddInfoScreen(
+                  email: email.text,
+                )));
   }
 
   void wrongSignUp(String message) {
@@ -136,12 +146,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onPressed: () {
                     if (password.text == rePassword.text) {
                       signUp();
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) => AddInfoScreen(
-                                    email: email.text,
-                                  )));
+                      checkSignup();
                     }
                   },
                   child: Text(

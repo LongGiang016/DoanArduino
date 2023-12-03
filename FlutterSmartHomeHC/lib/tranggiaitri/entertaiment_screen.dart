@@ -13,7 +13,7 @@ class Entertaiment_Screen extends StatefulWidget {
 class _Entertaiment_ScreenState extends State<Entertaiment_Screen>
     with SingleTickerProviderStateMixin {
   bool is_checked = false;
-  int? _cheDo;
+  int? _cheDo = 1;
   int colorEffectIndex = 0;
   @override
   Widget build(BuildContext context) {

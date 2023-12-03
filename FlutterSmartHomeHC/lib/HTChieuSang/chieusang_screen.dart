@@ -11,14 +11,11 @@ class ChieuSang extends StatefulWidget {
 
 class _ChieuSangState extends State<ChieuSang> {
   final ref = FirebaseDatabase.instance.ref("SmartHome/phong");
-  List arr_stt = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("cc"),
-      ),
+      appBar: AppBar(),
       body: Expanded(
           child: Container(
         decoration: const BoxDecoration(border: Border(bottom: BorderSide())),

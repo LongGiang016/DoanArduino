@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/login/views/login_screen.dart';
 import 'package:flutter_application_1/login/views/signup_screen.dart';
 import 'package:flutter_application_1/models/users_model.dart';
+import 'package:restart_app/restart_app.dart';
 
 class AddInfoScreen extends StatefulWidget {
   const AddInfoScreen({super.key, required this.email});
@@ -107,10 +108,7 @@ class _AddInfoScreenState extends State<AddInfoScreen> {
                         gioiTinh: (GioiTinh.nam == true ? true : false),
                         quyen: 1);
                     createUser(user);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => LoginScreen()));
+                    Restart.restartApp();
                   },
                   child: Text(
                     "Tiếp theo",
