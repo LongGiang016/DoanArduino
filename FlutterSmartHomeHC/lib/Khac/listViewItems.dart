@@ -17,12 +17,13 @@ class _MyListViewState extends State<MyListView> {
     return Column(
       children: [
         FirebaseAnimatedList(
-            query: ref,
-            itemBuilder: (context, snapshot, animation, index) {
-              return ListTile(
-                title: Text(snapshot.child('Ten').value.toString()),
-              );
-            })
+          query: ref,
+          itemBuilder: (context, snapshot, animation, index) {
+            return ListTile(
+              title: Text(snapshot.child('Ten').value.toString()),
+            );
+          },
+        )
       ],
     );
   }

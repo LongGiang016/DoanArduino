@@ -87,7 +87,6 @@ class _myGirdViewState extends State<myGirdView> {
                   ),
                 ),
                 Text(trangthai),
-              
               ],
             ),
           ),

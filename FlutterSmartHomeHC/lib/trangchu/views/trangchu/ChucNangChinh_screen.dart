@@ -1,4 +1,7 @@
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/HTChieuSang/chieusang_screen.dart';
 import 'package:flutter_application_1/ThietBi/detail.dart';
 import 'package:flutter_application_1/tranggiaitri/entertaiment_screen.dart';
 import 'package:get/get.dart';
@@ -11,6 +14,8 @@ class ChucNangChinh extends StatefulWidget {
 }
 
 class _ChucNangChinhState extends State<ChucNangChinh> {
+  final refCua = FirebaseDatabase.instance.ref("SmartHome/Nha");
+  bool cua = false;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -19,44 +24,58 @@ class _ChucNangChinhState extends State<ChucNangChinh> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    print("đã nhấn vào giải trí");
-                  });
-                },
-                child: Container(
-                  padding: const EdgeInsets.only(
-                    top: 30,
-                    bottom: 30,
-                    left: 50,
-                    right: 50,
-                  ),
-                  margin: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      width: 2,
-                      color: Colors.grey,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Column(
-                    children: [
-                      Icon(
-                        Icons.wind_power,
-                        size: 40,
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Quạt",
-                        style: TextStyle(fontSize: 25),
-                      ),
-                    ],
+              Container(
+                width: MediaQuery.of(context).size.width / 3,
+                height: MediaQuery.of(context).size.height / 5.5,
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1),
+                  borderRadius: BorderRadius.circular(
+                    10,
                   ),
                 ),
+                child: FirebaseAnimatedList(
+                    query: refCua,
+                    itemBuilder: (context, snapshot, animation, index) {
+                      return Column(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 2,
+                              ),
+                            ),
+                            child: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  refCua.update({
+                                    "0/TrangThaiCua":
+                                        snapshot.child('TrangThaiCua').value ==
+                                                true
+                                            ? false
+                                            : true
+                                  });
+                                });
+                              },
+                              icon: Icon(
+                                Icons.power_settings_new_outlined,
+                                color:
+                                    snapshot.child('TrangThaiCua').value == true
+                                        ? Colors.blue
+                                        : Colors.black,
+                              ),
+                              iconSize: 30,
+                            ),
+                          ),
+                          const Text(
+                            "Cửa ",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      );
+                    }),
               ),
               GestureDetector(
                 onTap: () {
@@ -106,10 +125,10 @@ class _ChucNangChinhState extends State<ChucNangChinh> {
                 onTap: () {
                   setState(() {
                     print("đã nhấn vào thiết bị");
-                Navigator.push(
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ScreenLight()),
+                          builder: (context) => const ChieuSang()),
                     );
                   });
                 },
@@ -152,7 +171,7 @@ class _ChucNangChinhState extends State<ChucNangChinh> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => Entertaiment_Screen()),
+                          builder: (context) => const Entertaiment_Screen()),
                     );
 
                     print("đã nhấn vào giải trí");

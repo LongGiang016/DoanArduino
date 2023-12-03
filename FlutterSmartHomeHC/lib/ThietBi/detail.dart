@@ -29,12 +29,12 @@ class _ScreenLightState extends State<ScreenLight> {
 
   @override
   Widget build(BuildContext context) {
-    int _currentIndex = 0;
-  final tabs = [
-    trangchitiet(),
-    AccountScreen(),
-    ThongBaoScreen(),
-  ];
+    int currentIndex = 0;
+    final tabs = [
+      const trangchitiet(),
+      const AccountScreen(),
+      const ThongBaoScreen(),
+    ];
     int count = (_Dens.length).ceil();
     return Scaffold(
       appBar: AppBar(
@@ -120,9 +120,11 @@ class _ScreenLightState extends State<ScreenLight> {
         padding: const EdgeInsets.all(8),
         itemCount: count,
         itemBuilder: (BuildContext context, int index) {
-          return Column(children: [
-            l_Den(ned: _Dens[index]),
-          ]);
+          return Column(
+            children: [
+              l_Den(ned: _Dens[index]),
+            ],
+          );
         },
       ),
     );

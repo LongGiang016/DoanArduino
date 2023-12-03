@@ -14,9 +14,9 @@ class l_Den extends StatefulWidget {
 class _l_DenState extends State<l_Den> {
   @override
   Widget build(BuildContext context) {
-    bool _enabled = true;
+    bool enabled = true;
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(10.0)),
         color: Colors.greenAccent,
       ),
@@ -25,22 +25,30 @@ class _l_DenState extends State<l_Den> {
       child: Column(
         children: [
           ListTile(
-        leading:Icon(Icons.light, size: 50,),
-        title: Text(widget.ned.name, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),),
-        subtitle: Text(""),
-        trailing: Switch(
-            onChanged: (bool? value) {
-              // This is called when the user toggles the switch.
-              setState(() {
-                _enabled = value!;
-              });
-            },
-            value: _enabled,
+            leading: const Icon(
+              Icons.light,
+              size: 50,
+            ),
+            title: Text(
+              widget.ned.name,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            subtitle: const Text(""),
+            trailing: Switch(
+              onChanged: (bool? value) {
+                // This is called when the user toggles the switch.
+                setState(() {
+                  enabled = value!;
+                });
+              },
+              value: enabled,
+            ),
           ),
-      ),
 
           // Text('${ned.price}', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red[400]),),
-          
         ],
       ),
     );

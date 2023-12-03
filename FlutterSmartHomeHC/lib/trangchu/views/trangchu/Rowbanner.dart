@@ -1,10 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/DuLieuRealtime.dart';
 
 class Rowbanner extends StatelessWidget {
   Rowbanner({super.key});
   final user = FirebaseAuth.instance.currentUser!;
+
+  final db = FirebaseDatabase.instance
+      .ref()
+      .child('SmartHome/TaiKhoan/ThietBi')
+      .push()
+      .set(ThietBi());
+  List lst_ThietBi = [];
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +25,8 @@ class Rowbanner extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Text(
-              "Welcome " + user.email!,
-              style: TextStyle(
+              "Welcome ${user.email!}",
+              style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),
