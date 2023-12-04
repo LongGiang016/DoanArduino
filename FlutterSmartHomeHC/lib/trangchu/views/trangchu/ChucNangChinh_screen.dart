@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/CanhBao/canh_bao.dart';
 import 'package:flutter_application_1/HTChieuSang/chieusang_screen.dart';
 import 'package:flutter_application_1/ThietBi/detail.dart';
 import 'package:flutter_application_1/tranggiaitri/entertaiment_screen.dart';
@@ -14,7 +15,7 @@ class ChucNangChinh extends StatefulWidget {
 }
 
 class _ChucNangChinhState extends State<ChucNangChinh> {
-  final refCua = FirebaseDatabase.instance.ref("SmartHome/Nha");
+  final ref = FirebaseDatabase.instance.ref("SmartHome/Nha");
   bool cua = false;
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class _ChucNangChinhState extends State<ChucNangChinh> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                width: MediaQuery.of(context).size.width / 2.3,
+                width: MediaQuery.of(context).size.width / 2.55,
                 height: MediaQuery.of(context).size.height / 5.5,
                 decoration: BoxDecoration(
                   border: Border.all(width: 1),
@@ -34,7 +35,7 @@ class _ChucNangChinhState extends State<ChucNangChinh> {
                   ),
                 ),
                 child: FirebaseAnimatedList(
-                    query: refCua,
+                    query: ref,
                     itemBuilder: (context, snapshot, animation, index) {
                       return Column(
                         children: [
@@ -47,12 +48,12 @@ class _ChucNangChinhState extends State<ChucNangChinh> {
                             child: IconButton(
                               onPressed: () {
                                 setState(() {
-                                  refCua.update({
+                                  ref.update({
                                     "0/TrangThaiCua":
                                         snapshot.child('TrangThaiCua').value ==
-                                                true
-                                            ? false
-                                            : true
+                                                1
+                                            ? 0
+                                            : 1
                                   });
                                 });
                               },
@@ -77,45 +78,7 @@ class _ChucNangChinhState extends State<ChucNangChinh> {
                       );
                     }),
               ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    print("đã nhấn vào cảnh báo");
-                  });
-                },
-                child: Container(
-                  padding: const EdgeInsets.only(
-                    top: 30,
-                    bottom: 30,
-                    left: 25,
-                    right: 25,
-                  ),
-                  margin: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(
-                      width: 2,
-                      color: Colors.grey,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Column(
-                    children: [
-                      Icon(
-                        Icons.warning_amber,
-                        size: 40,
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        "Cảnh báo",
-                        style: TextStyle(fontSize: 25),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              const CanhBao(),
             ],
           ),
           Row(

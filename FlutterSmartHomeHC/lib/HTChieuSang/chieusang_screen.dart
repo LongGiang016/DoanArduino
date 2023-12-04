@@ -26,7 +26,7 @@ class _ChieuSangState extends State<ChieuSang> {
                 title: Text(snapshot.child('Ten').value.toString()),
                 subtitle: Text(
                     snapshot.child('trangthaiDen').value == 0 ? "Tắt" : "Mở"),
-                trailing: IconButton(
+                trailing: IconButton( 
                   onPressed: () {
                     ref.update({
                       "$index/trangthaiDen":
