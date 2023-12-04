@@ -15,8 +15,6 @@ class Rowbanner extends StatelessWidget {
       .set(ThietBi());
   List lst_ThietBi = [];
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Column(
