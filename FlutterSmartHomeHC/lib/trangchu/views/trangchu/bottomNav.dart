@@ -26,8 +26,7 @@ class _bottomNavState extends State<bottomNav> {
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
               BottomNavigationBarItem(
                   icon: Icon(Icons.account_box_rounded), label: 'Account'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.description), label: 'Thông báo'),
+           
             ],
             currentIndex:  _currentIndex,
             onTap: (index){

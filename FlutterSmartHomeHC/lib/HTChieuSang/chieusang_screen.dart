@@ -37,6 +37,7 @@ class _ChieuSangState extends State<ChieuSang> {
                     Icons.light_mode_rounded,
                   ),
                   color: snapshot.child('trangthaiDen').value == 0
+      
                       ? Colors.black
                       : Colors.greenAccent,
                 ),
