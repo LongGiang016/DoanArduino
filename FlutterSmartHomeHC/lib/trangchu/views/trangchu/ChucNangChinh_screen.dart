@@ -1,7 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/CanhBao/canh_bao.dart';
+import 'package:flutter_application_1/trangchu/views/trangchu/canh_bao.dart';
 import 'package:flutter_application_1/HTChieuSang/chieusang_screen.dart';
 import 'package:flutter_application_1/ThietBi/detail.dart';
 import 'package:flutter_application_1/tranggiaitri/entertaiment_screen.dart';

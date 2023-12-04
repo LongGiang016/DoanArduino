@@ -59,7 +59,7 @@ class Rowbanner extends StatelessWidget {
                 softWrap: true,
               ),
             ),
-            Image.asset("assets/img/h1.png",
+            Image.asset("assets/img/h2.jpg",
                 width: MediaQuery.of(context).size.width / 4),
           ],
         )
