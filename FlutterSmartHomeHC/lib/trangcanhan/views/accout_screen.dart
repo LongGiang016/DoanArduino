@@ -44,7 +44,7 @@ class _AccountScreenState extends State<AccountScreen> {
     QuerySnapshot querySnapshot;
 
     try {
-      querySnapshot = await _collectionRef.where('Email', isEqualTo: "0306211069@caothang.edu.vn").get();
+      querySnapshot = await _collectionRef.where('Email', isEqualTo:user.email ).get();
 
       if (querySnapshot.docs.isNotEmpty) {
         for (var doc in querySnapshot.docs) {
@@ -80,7 +80,7 @@ class _AccountScreenState extends State<AccountScreen> {
 // Hàm cập nhật tên tài khoản
 Future<void> updateName() async {
   try {
-    await _collectionRef.doc("0306211069@caothang.edu.vn"
+    await _collectionRef.doc(user.email
 ).update({'TenTaiKhoan': nameController.text});
     print('Tên tài khoản đã được cập nhật thành công');
   } catch (e) {
@@ -108,7 +108,7 @@ Future<void> updateName() async {
 
   
   Future<void> updateUser(String name) async {
-  QuerySnapshot querySnapshot = await users.where('Email', isEqualTo: "0306211069@caothang.edu.vn"
+  QuerySnapshot querySnapshot = await users.where('Email', isEqualTo: user.email
 ).get();
   if (querySnapshot.docs.isNotEmpty) {
     querySnapshot.docs.first.reference.update({'TenTaiKhoan': name})
@@ -119,7 +119,7 @@ Future<void> updateName() async {
   }
 }
 Future<void> updateGioiTinh(bool name) async {
-  QuerySnapshot querySnapshot = await users.where('Email', isEqualTo: "0306211069@caothang.edu.vn"
+  QuerySnapshot querySnapshot = await users.where('Email', isEqualTo: user.email
 ).get();
   if (querySnapshot.docs.isNotEmpty) {
     querySnapshot.docs.first.reference.update({'GioiTinh': name})
@@ -214,7 +214,7 @@ Future<void> updateMatKhau(String name) async {
                              Row(
                               children: [
                                 Text(
-                                  "Họ và tên ${user.email}:",
+                                  "Họ và tên:",
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                                 Text(tenTaiKhoan)
@@ -366,6 +366,7 @@ Future<void> updateMatKhau(String name) async {
                                                                       child: Text('Đóng'),
                                                                       onPressed: () {
                                                                         Navigator.of(context).pop();
+                                                                       
                                                                       },
                                                                     ),
                                                                   ],
@@ -374,6 +375,9 @@ Future<void> updateMatKhau(String name) async {
                                                             );
                                                           } else {
                                                             updateUser(nameController.text);
+                                                             setState(() {
+                                                                          tenTaiKhoan = nameController.text;
+                                                                        });
                                                           }
                                                     },
                                                 child: Text("Lưu"),
@@ -484,6 +488,11 @@ Future<void> updateMatKhau(String name) async {
                                                  onPressed: () {
                                                   bool CheckGt = _gioiTinh == GioiTinhRad.nam ? true : false;
                                                   updateGioiTinh(CheckGt);
+                                                  setState(() {
+                                                                          GioiTinh = CheckGt;
+                                                                        });
+                                                  
+                                                  
                                                       
                                                      
                                                     },
