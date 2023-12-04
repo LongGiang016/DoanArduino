@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/DuLieuRealtime.dart';
@@ -19,46 +18,22 @@ class Rowbanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(
+          height: 30,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            Image.asset('assets/img/logo.png',
+                width: MediaQuery.of(context).size.width / 4),
             Text(
-              "Welcome ${user.email!}",
+              "Welcome \n${user.email!}",
               style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),
               softWrap: true,
             ),
-            IconButton(
-              onPressed: () {
-                print("click thêm thiết bị ");
-                showBottomSheet(context);
-              },
-              icon: const Icon(
-                Icons.add_box,
-                color: Colors.blueAccent,
-                size: 35,
-              ),
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width - 150,
-              child: const Text(
-                "Ngày hôm nay của bạn như thế nào? có muốn tôi làm phiên bạn không?",
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  color: Colors.grey,
-                ),
-                softWrap: true,
-              ),
-            ),
-            Image.asset("assets/img/h2.jpg",
-                width: MediaQuery.of(context).size.width / 4),
           ],
         )
       ],

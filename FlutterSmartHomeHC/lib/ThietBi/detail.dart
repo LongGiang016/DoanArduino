@@ -6,7 +6,6 @@ import 'package:flutter_application_1/ThietBi/item/l_D.dart';
 import 'package:flutter_application_1/trangcanhan/views/accout_screen.dart';
 import 'package:flutter_application_1/trangchu/Load_trang_chinh.dart';
 import 'package:flutter_application_1/trangchu/views/trangchu/bottomNav.dart';
-import 'package:flutter_application_1/trangthongbao/thongbao_screen.dart';
 
 import 'menu.dart';
 
@@ -33,7 +32,6 @@ class _ScreenLightState extends State<ScreenLight> {
     final tabs = [
       const trangchitiet(),
       const AccountScreen(),
-      const ThongBaoScreen(),
     ];
     int count = (_Dens.length).ceil();
     return Scaffold(

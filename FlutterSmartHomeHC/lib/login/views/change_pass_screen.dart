@@ -42,8 +42,12 @@ class _ChangePassState extends State<ChangePass> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('5BOT SmartHome')),
       body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/img/background.jpg"),
+                fit: BoxFit.cover,
+                opacity: 0.6)),
         padding: const EdgeInsets.fromLTRB(50, 150, 50, 50),
         child: Column(
           children: [

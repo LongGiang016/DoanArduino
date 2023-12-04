@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/HTChieuSang/chieusang_screen.dart';
+import 'package:flutter_application_1/quanLyThietBi/chieusang_screen.dart';
 
 class ThietBi extends StatefulWidget {
   const ThietBi({super.key});

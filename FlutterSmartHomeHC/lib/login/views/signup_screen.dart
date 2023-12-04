@@ -58,11 +58,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/img/background.jpg"),
+                fit: BoxFit.cover,
+                opacity: 0.6)),
         padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
         child: Column(
           children: [
             const Image(
-              image: AssetImage('assets/img/5BOT-logos.png'),
+              image: AssetImage('assets/img/logo.png'),
               height: 300,
             ),
             const Text(

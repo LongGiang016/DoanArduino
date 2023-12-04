@@ -53,10 +53,15 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/img/background.jpg"),
+                fit: BoxFit.cover,
+                opacity: 0.6)),
+        padding: const EdgeInsets.fromLTRB(50, 150, 50, 0),
         child: Column(
           children: [
-            const Image(image: AssetImage('assets/img/5BOT-logos.png')),
+            const Image(image: AssetImage('assets/img/logo.png')),
             TextFormField(
               controller: email,
               decoration: const InputDecoration(

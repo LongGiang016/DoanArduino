@@ -87,9 +87,9 @@ class _Entertaiment_ScreenState extends State<Entertaiment_Screen>
                                   if (is_checked) {
                                     FirebaseDatabase.instance
                                         .ref()
-                                        .child('/SmartHome/ThietBi/0')
+                                        .child('/SmartHome/phong/0')
                                         .update({
-                                      'trangthai': 2,
+                                      'trangthaiDen': 2,
                                     });
                                   }
                                 });
@@ -108,9 +108,9 @@ class _Entertaiment_ScreenState extends State<Entertaiment_Screen>
                                   if (is_checked) {
                                     FirebaseDatabase.instance
                                         .ref()
-                                        .child('/SmartHome/ThietBi/0/trangthai')
+                                        .child('/SmartHome/phong/0')
                                         .update({
-                                      'trangthai': 3,
+                                      'trangthaiDen': 3,
                                     });
                                   }
                                 });
@@ -129,9 +129,9 @@ class _Entertaiment_ScreenState extends State<Entertaiment_Screen>
                                   if (is_checked) {
                                     FirebaseDatabase.instance
                                         .ref()
-                                        .child('/SmartHome/ThietBi/0/trangthai')
+                                        .child('/SmartHome/phong/0')
                                         .update({
-                                      'trangthai': 4,
+                                      'trangthaiDen': 4,
                                     });
                                   }
                                 });

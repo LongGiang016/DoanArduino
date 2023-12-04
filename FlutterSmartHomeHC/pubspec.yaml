@@ -47,7 +47,7 @@ dependencies:
   rename: ^3.0.1
 
 flutter_icons:
-  image_path: "icon/icon1.jpg" 
+  image_path: "assets/img/logo.png" 
   android: true
 dev_dependencies:
   flutter_test:
@@ -74,8 +74,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/img/h1.png
-    - assets/img/h2.jpg
+    - assets/img/logo.png
     - assets/img/5BOT-logos.png
+    - assets/img/background.jpg
     - assets/data/datalist.json
     - assets/data/dsD.json
     - assets/data/dsP.json
