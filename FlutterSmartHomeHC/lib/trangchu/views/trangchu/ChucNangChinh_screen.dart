@@ -25,7 +25,7 @@ class _ChucNangChinhState extends State<ChucNangChinh> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                width: MediaQuery.of(context).size.width / 3,
+                width: MediaQuery.of(context).size.width / 2.3,
                 height: MediaQuery.of(context).size.height / 5.5,
                 decoration: BoxDecoration(
                   border: Border.all(width: 1),
